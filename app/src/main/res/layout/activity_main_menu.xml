@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context=".activity.MainMenuActivity">
+    tools:context=".ui.activity.MainMenuActivity">
 
 
     <!--Main Title -->
@@ -29,7 +29,7 @@
             android:text="@string/mainMenuTitle"
             android:gravity="center"
             android:textColor="@color/yellow"
-            android:textSize="70sp" />
+            android:textSize="65dp" />
     </LinearLayout>
 
     <!-- 경로 안내, 블루투스 연결-->
@@ -50,7 +50,7 @@
             android:backgroundTint="@color/yellow"
             android:fontFamily="@font/bold"
             android:textColor="@color/darkgreen"
-            android:textSize="68sp"
+            android:textSize="68dp"
             android:text="@string/routeGuideBT" />
 
         <!-- 블루투스 연결-->
@@ -64,7 +64,7 @@
             android:backgroundTint="@color/yellow"
             android:fontFamily="@font/bold"
             android:textColor="@color/red"
-            android:textSize="45sp"
+            android:textSize="40dp"
             android:text="@string/btConnect" />
     </LinearLayout>
 
@@ -87,7 +87,7 @@
             android:backgroundTint="@color/yellow"
             android:fontFamily="@font/bold"
             android:textColor="@color/navy"
-            android:textSize="68sp"
+            android:textSize="68dp"
             android:text="@string/setting" />
 
         <!-- 종료 -->
@@ -101,7 +101,7 @@
             android:backgroundTint="@color/yellow"
             android:fontFamily="@font/bold"
             android:textColor="@color/olive"
-            android:textSize="90sp"
+            android:textSize="80dp"
             android:text="@string/exit" />
     </LinearLayout>
 </LinearLayout>

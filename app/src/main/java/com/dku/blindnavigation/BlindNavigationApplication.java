@@ -1,41 +1,23 @@
 package com.dku.blindnavigation;
 
 import android.app.Application;
-import android.content.SharedPreferences;
+
+import com.dku.blindnavigation.repository.TtsDataStore;
+import com.dku.blindnavigation.utils.TTSHelper;
 
 public class BlindNavigationApplication extends Application {
 
-    private final String TTS_SPEED = "ttsSpeed";
+    private TtsDataStore mTtsDataStore;
 
-    private float ttsSpeed;
-
-    public float getTtsSpeed() {
-        return ttsSpeed;
-    }
-
-    private void setTtsSpeed(float ttsSpeed) {
-        this.ttsSpeed = ttsSpeed;
+    public TtsDataStore getTtsDataStore() {
+        return mTtsDataStore;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        loadTtsSpeed();
-    }
-
-    public void loadTtsSpeed() {
-        SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
-        setTtsSpeed(setting.getFloat(TTS_SPEED, 1));
-    }
-
-    public void updateTtsSpeed(float speed) {
-        SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
-
-        SharedPreferences.Editor edit = setting.edit();
-        edit.putFloat(TTS_SPEED, speed);
-        edit.apply();
-
-        loadTtsSpeed();
+        mTtsDataStore = new TtsDataStore(this);
+        TTSHelper.initDataStore(mTtsDataStore);
     }
 
 }

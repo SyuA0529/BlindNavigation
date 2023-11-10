@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:orientation="vertical"
-    tools:context=".activity.setting.SettingActivity">
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -15,58 +12,20 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/settingTitleTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/extrabold"
-            android:textSize="80sp"
-            android:textColor="@color/skyblue"
+            android:text="@string/setting"
             android:textAlignment="center"
-            android:text="@string/setting" />
+            android:textColor="@color/skyblue"
+            android:textSize="80sp" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/toTtsSpeedBT"
+    <FrameLayout
+        android:id="@+id/settingFragmentLayout"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="15dp"
-        android:background="@drawable/rectangle_button_skyblue_navy"
-        android:fontFamily="@font/bold"
-        android:textColor="@color/navy"
-        android:textSize="70sp"
-        android:text="@string/ttsSpeed" />
+        android:layout_height="wrap_content"></FrameLayout>
 
-    <Button
-        android:id="@+id/toUsageBT"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="15dp"
-        android:background="@drawable/rectangle_button_skyblue_navy"
-        android:fontFamily="@font/bold"
-        android:textColor="@color/navy"
-        android:textSize="70sp"
-        android:text="@string/usage" />
-
-    <Button
-        android:id="@+id/toInquiryBT"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="15dp"
-        android:background="@drawable/rectangle_button_skyblue_navy"
-        android:fontFamily="@font/bold"
-        android:textColor="@color/navy"
-        android:textSize="70sp"
-        android:text="@string/inquiry" />
-
-    <Button
-        android:id="@+id/settingToMainBT"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="15dp"
-        android:background="@drawable/rectangle_button_skyblue_red"
-        android:fontFamily="@font/bold"
-        android:textColor="@color/red"
-        android:textSize="70sp"
-        android:text="@string/toMain" />
 </LinearLayout>

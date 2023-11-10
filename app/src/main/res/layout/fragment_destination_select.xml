@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <!-- 목적지 검색 -->
+    <Button
+        android:id="@+id/findDestinationBT"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle_button_yellow_darkgreen"
+        android:fontFamily="@font/bold"
+        android:text="@string/findDestination"
+        android:textColor="@color/darkgreen"
+        android:textSize="60sp" />
+
+    <!-- 목적지 안내 -->
+    <Button
+        android:id="@+id/selectDestinationBT"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle_button_yellow_red"
+        android:fontFamily="@font/bold"
+        android:text="@string/selectDestination"
+        android:textColor="@color/red"
+        android:textSize="60sp" />
+
+    <!-- 다음 목적지 -->
+    <Button
+        android:id="@+id/nextDestinationBT"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle_button_yellow_navy"
+        android:fontFamily="@font/bold"
+        android:text="@string/nextDestinationBT"
+        android:textColor="@color/navy"
+        android:textSize="60sp" />
+
+    <!-- 메인으로 -->
+    <Button
+        android:id="@+id/selectDestToMainBT"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle_button"
+        android:fontFamily="@font/bold"
+        android:text="@string/toMain"
+        android:textColor="#000000"
+        android:textSize="60sp" />
+</LinearLayout>
