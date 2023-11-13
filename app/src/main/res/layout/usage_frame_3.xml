@@ -7,11 +7,17 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="3"
+        android:text="TTS 조절 기능\n\n
+1. TTS의 속도 조절은 방향키로 진행한다.\n\n
+2. 사용자의 설정에 맞게 0.1배속에서 2배속까지 조절이 가능하다.\n\n
+3. 조절을 완료한 후 저장을 누르면 해당 속도가 적용된다. \n\n
+4. 같은 방식으로 속도 변경 후 적용하면 된다.
+"
         android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:textSize="50dp"
-        android:gravity="center"
+        android:layout_height="600dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/bold"
+        android:gravity="top"
         android:textColor="#000000"
         android:background="@color/skyblue"
         />

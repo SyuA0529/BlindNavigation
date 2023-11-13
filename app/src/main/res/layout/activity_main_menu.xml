@@ -29,7 +29,7 @@
             android:text="@string/mainMenuTitle"
             android:gravity="center"
             android:textColor="@color/yellow"
-            android:textSize="65dp" />
+            android:textSize="70dp" />
     </LinearLayout>
 
     <!-- 경로 안내, 블루투스 연결-->
@@ -44,13 +44,13 @@
             android:id="@+id/routeGuideBT"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/rectangle_button_yellow_darkgreen"
             android:backgroundTint="@color/yellow"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/extrabold"
             android:textColor="@color/darkgreen"
-            android:textSize="68dp"
+            android:textSize="70dp"
             android:text="@string/routeGuideBT" />
 
         <!-- 블루투스 연결-->
@@ -58,13 +58,13 @@
             android:id="@+id/btConnectBT"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/rectangle_button_yellow_red"
             android:backgroundTint="@color/yellow"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/extrabold"
             android:textColor="@color/red"
-            android:textSize="40dp"
+            android:textSize="45dp"
             android:text="@string/btConnect" />
     </LinearLayout>
 
@@ -81,13 +81,13 @@
             android:id="@+id/settingBT"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/rectangle_button_yellow_navy"
             android:backgroundTint="@color/yellow"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/extrabold"
             android:textColor="@color/navy"
-            android:textSize="68dp"
+            android:textSize="70dp"
             android:text="@string/setting" />
 
         <!-- 종료 -->
@@ -95,13 +95,13 @@
             android:id="@+id/exitBT"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/rectangle_button_yellow_olive"
             android:backgroundTint="@color/yellow"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/extrabold"
             android:textColor="@color/olive"
-            android:textSize="80dp"
+            android:textSize="85dp"
             android:text="@string/exit" />
     </LinearLayout>
 </LinearLayout>
