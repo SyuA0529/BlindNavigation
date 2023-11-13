@@ -86,5 +86,4 @@ public class NavigateActivityViewModel extends ViewModel {
         mRoute.postValue(route);
     }
 
-
 }

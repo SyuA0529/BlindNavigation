@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <TextView
         android:text="네비게이션 장갑 사용법 \n\n
-1. 북쪽은 검지, 동쪽은 중지, 남쪽은 약지, 서쪽은 소지이다. \n\n
-2. 한쪽 손가락의 진동이 느껴지면 한 가지 방향을 향한다.\n\n
-3. 두 손가락의 진동이 느껴지면 대각선 방향을 향한다."
+1. 서쪽은 검지, 북쪽은 중지, 동쪽은 약지, 남쪽은 소지이다. \n\n
+2. 한 손가락에 진동이 느껴지면 한 가지 방향을 향한다.\n\n
+3. 두 손가락에 진동이 느껴지면 대각선 방향을 향한다."
         android:layout_width="400dp"
         android:layout_height="600dp"
         android:textSize="30dp"

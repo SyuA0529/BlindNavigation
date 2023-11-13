@@ -37,41 +37,43 @@
         <Button
             android:id="@+id/ttsSpeedUp"
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="140dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
             android:background="@drawable/rectangle_button_yellow_red"
             android:fontFamily="@font/bold"
             android:text="▲"
             android:textColor="@color/red"
-            android:textSize="70dp" />
+            android:textSize="90dp" />
 
         <Button
             android:id="@+id/ttsSpeedDown"
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="140dp"
             android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
             android:background="@drawable/rectangle_button_yellow_navy"
             android:fontFamily="@font/bold"
             android:text="▼"
             android:textColor="@color/navy"
-            android:textSize="70dp" />
+            android:textSize="90dp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/testTTSBT"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle_button_yellow_darkgreen"
         android:fontFamily="@font/bold"
         android:text="@string/checkTTSSpeed"
         android:textColor="@color/darkgreen"
-        android:textSize="60sp" />
+        android:textSize="50sp" />
 
     <Button
         android:id="@+id/saveTTSBT"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle_button_yellow_navy"
         android:fontFamily="@font/bold"
@@ -82,7 +84,7 @@
     <Button
         android:id="@+id/ttsSpeedToMainBT"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle_button"
         android:fontFamily="@font/bold"
