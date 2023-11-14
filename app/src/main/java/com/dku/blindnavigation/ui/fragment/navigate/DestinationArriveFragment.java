@@ -27,7 +27,7 @@ public class DestinationArriveFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_destination_arrive, container, false);
         new ViewModelProvider(requireActivity()).get(NavigateActivityViewModel.class)
-                .changeTitle("목적지 도착");
+                .changeTitle("목적지\n도착");
         rootView.findViewById(R.id.arriveDestToMainBT)
                 .setOnClickListener(view -> requireActivity().finish());
         return rootView;
