@@ -42,6 +42,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     private void initButtons() {
         this.<Button>findViewById(R.id.routeGuideBT).setOnClickListener(v -> {
+            ttsHelper.speakString("경로 안내 메뉴입니다.");
             if (locationPermGranted && backgroundPermGranted && audioPermGranted) {
                 startActivity(new Intent(this, NavigateActivity.class));
                 return;

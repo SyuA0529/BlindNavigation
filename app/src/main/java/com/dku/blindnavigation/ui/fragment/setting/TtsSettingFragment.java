@@ -60,10 +60,7 @@ public class TtsSettingFragment extends SettingFragment {
                 });
 
         rootView.<Button>findViewById(R.id.ttsSpeedToMainBT)
-                .setOnClickListener(view -> {
-                    ttsHelper.speakString("메인 메뉴로 이동합니다.");
-                    toMainMenu();
-                });
+                .setOnClickListener(view -> toMainMenu());
     }
 
 }

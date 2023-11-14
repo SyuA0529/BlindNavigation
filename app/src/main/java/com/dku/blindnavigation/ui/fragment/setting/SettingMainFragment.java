@@ -28,19 +28,19 @@ public class SettingMainFragment extends SettingFragment {
     private void initButtons(View rootView) {
         rootView.<Button>findViewById(R.id.toTtsSpeedBT)
                 .setOnClickListener(view -> {
-                    ttsHelper.speakString("TTS 속도 설정 메뉴입니다.");
-                getRootView().changeFragmentNum(1);
+                    ttsHelper.speakString("TTS 속도 설정 메뉴");
+                    getRootView().changeFragmentNum(1);
                 });
 
         rootView.<Button>findViewById(R.id.toUsageBT)
                 .setOnClickListener(view -> {
-                    ttsHelper.speakString("사용법에 대한 설명입니다.");
+                    ttsHelper.speakString("사용법");
                     getRootView().changeFragmentNum(2);
                 });
 
         rootView.<Button>findViewById(R.id.toInquiryBT)
                 .setOnClickListener(view -> {
-                    ttsHelper.speakString("문의사항 메뉴입니다.");
+                    ttsHelper.speakString("문의사항");
                     getRootView().changeFragmentNum(3);
                 });
 

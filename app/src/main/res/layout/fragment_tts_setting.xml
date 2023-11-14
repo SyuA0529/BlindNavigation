@@ -29,7 +29,7 @@
             android:layout_height="140dp"
             android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
-            android:background="@drawable/rectangle_button_yellow_red"
+            android:background="@drawable/rectangle_button_skyblue_red"
             android:fontFamily="@font/bold"
             android:text="▲"
             android:textColor="@color/red"
@@ -41,7 +41,7 @@
             android:layout_height="140dp"
             android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
-            android:background="@drawable/rectangle_button_yellow_navy"
+            android:background="@drawable/rectangle_button_skyblue_navy"
             android:fontFamily="@font/bold"
             android:text="▼"
             android:textColor="@color/navy"
@@ -53,10 +53,10 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="10dp"
-        android:background="@drawable/rectangle_button_yellow_darkgreen"
+        android:background="@drawable/rectangle_button_skyblue_navy"
         android:fontFamily="@font/bold"
         android:text="@string/checkTTSSpeed"
-        android:textColor="@color/darkgreen"
+        android:textColor="@color/navy"
         android:textSize="50sp" />
 
     <Button
@@ -64,10 +64,10 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="10dp"
-        android:background="@drawable/rectangle_button_yellow_navy"
+        android:background="@drawable/rectangle_button_skyblue_red"
         android:fontFamily="@font/bold"
         android:text="@string/saveTTSSpeed"
-        android:textColor="@color/navy"
+        android:textColor="@color/red"
         android:textSize="60sp" />
 
     <Button
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="10dp"
-        android:background="@drawable/rectangle_button"
+        android:background="@drawable/rectangle_button_skyblue"
         android:fontFamily="@font/bold"
         android:text="@string/toMain"
         android:textColor="@color/black"
