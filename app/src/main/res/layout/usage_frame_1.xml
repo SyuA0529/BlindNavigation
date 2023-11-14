@@ -13,8 +13,8 @@
 2. 블루투스 장치검색 버튼을 누른다.\n\n
 3. 네비게이션 기기 이름이 나오면  '예'  버튼을 누른다. \n\n
 4. 연결이 되었으면 이용이 가능하다."
-        android:layout_width="400dp"
-        android:layout_height="600dp"
+        android:layout_width="350dp"
+        android:layout_height="550dp"
         android:textSize="30dp"
         android:fontFamily="@font/bold"
         android:gravity="top"

@@ -12,7 +12,7 @@
     <!-- 아이콘 이미지 -->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="170dp"
         android:gravity="center_horizontal"
         android:src="@drawable/capstone_icon_skyblue"
         android:layout_marginHorizontal="20dp"/>

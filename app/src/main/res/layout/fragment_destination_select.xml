@@ -6,60 +6,52 @@
     android:orientation="vertical">
 
     <!-- 아이콘 이미지 -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
-        android:src="@drawable/capstone_icon" />
 
     <!-- 목적지 검색 -->
     <Button
         android:id="@+id/findDestinationBT"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle_button_yellow_darkgreen"
         android:fontFamily="@font/bold"
         android:text="@string/findDestination"
         android:textColor="@color/darkgreen"
-        android:textSize="60sp" />
+        android:textSize="65sp" />
 
     <!-- 목적지 안내 -->
     <Button
         android:id="@+id/selectDestinationBT"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle_button_yellow_red"
         android:fontFamily="@font/bold"
         android:text="@string/selectDestination"
         android:textColor="@color/red"
-        android:textSize="60sp" />
+        android:textSize="65sp" />
 
     <!-- 다음 목적지 -->
     <Button
         android:id="@+id/nextDestinationBT"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle_button_yellow_navy"
         android:fontFamily="@font/bold"
         android:text="@string/nextDestinationBT"
         android:textColor="@color/navy"
-        android:textSize="60sp" />
+        android:textSize="65sp" />
 
     <!-- 메인으로 -->
     <Button
         android:id="@+id/selectDestToMainBT"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_margin="10dp"
         android:background="@drawable/rectangle_button"
         android:fontFamily="@font/bold"
         android:text="@string/toMain"
         android:textColor="#000000"
-        android:textSize="60sp" />
+        android:textSize="70sp" />
 </LinearLayout>
