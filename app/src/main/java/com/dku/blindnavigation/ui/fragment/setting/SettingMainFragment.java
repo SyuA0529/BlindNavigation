@@ -6,18 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+
 import com.dku.blindnavigation.R;
 
 public class SettingMainFragment extends SettingFragment {
 
     private static final String TAG = "SettingMainFragment";
 
+    private boolean isFirstToMainBTClicked = true;
+
     public static SettingMainFragment newInstance() {
         return new SettingMainFragment();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_setting_main, container, false);
         setTitle(getString(R.string.setting));
@@ -36,7 +40,7 @@ public class SettingMainFragment extends SettingFragment {
                 .setOnClickListener(view -> getRootView().changeFragmentNum(3));
 
         rootView.findViewById(R.id.settingToMainBT)
-                .setOnClickListener(view -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
+                .setOnClickListener(view -> isFirstToMainBTClicked = toMainMenu(isFirstToMainBTClicked));
     }
 
 }

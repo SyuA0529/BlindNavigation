@@ -30,7 +30,7 @@ public class SettingFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         throw new RuntimeException("Stub!");
@@ -44,8 +44,13 @@ public class SettingFragment extends Fragment {
         rootViewModel.changeTitle(title);
     }
 
-    protected void toMainMenu() {
-        requireActivity().finish();
+    protected boolean toMainMenu(boolean isFirstToMainBTClicked) {
+        if (isFirstToMainBTClicked) {
+//            ttsHelper.speakString();
+        } else {
+            requireActivity().finish();
+        }
+        return false;
     }
 
     @Override
@@ -73,11 +78,6 @@ public class SettingFragment extends Fragment {
         super.onDetach();
         ttsHelper.stopUsing();
         callback.remove();
-    }
-
-    protected void onBackPressed() {
-
-        rootViewModel.changeFragmentNum(0);
     }
 
 }

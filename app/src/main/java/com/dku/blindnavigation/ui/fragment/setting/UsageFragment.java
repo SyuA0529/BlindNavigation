@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -21,19 +22,20 @@ public class UsageFragment extends SettingFragment {
 
     private ViewPager2 pager;
     private CircleIndicator3 indicator;
+    private boolean isFirstToMainBTClicked = true;
 
     public static UsageFragment newInstance() {
         return new UsageFragment();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_usage, container, false);
         setTitle(getString(R.string.usage));
         initViewPager(rootView);
         rootView.<Button>findViewById(R.id.usageToMainBT)
-                .setOnClickListener(view -> toMainMenu());
+                .setOnClickListener(view -> isFirstToMainBTClicked = toMainMenu(isFirstToMainBTClicked));
         return rootView;
     }
 

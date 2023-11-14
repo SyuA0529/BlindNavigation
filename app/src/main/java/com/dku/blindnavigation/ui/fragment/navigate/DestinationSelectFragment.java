@@ -34,6 +34,11 @@ public class DestinationSelectFragment extends Fragment {
     private OrientationListener mOrientationListener;
     private RemoteNavigateDataSource remoteNavigateDataSource;
 
+    private boolean isFirstSelectBTClicked = true;
+    private boolean isFirstNextBTClicked = true;
+    private boolean isFirstFindBTClicked = true;
+    private boolean isFirstToMainBTClicked = true;
+
     public static DestinationSelectFragment newInstance() {
         DestinationSelectFragment fragment = new DestinationSelectFragment();
         Bundle args = new Bundle();
@@ -57,7 +62,14 @@ public class DestinationSelectFragment extends Fragment {
         initSelectDestinationBT(rootView);
         initNextDestinationBT(rootView);
         rootView.findViewById(R.id.selectDestToMainBT)
-                .setOnClickListener(view -> requireActivity().finish());
+                .setOnClickListener(view -> {
+                    if (isFirstToMainBTClicked) {
+//                        ttsHelper.speakString();
+                        isFirstToMainBTClicked = false;
+                        return;
+                    }
+                    requireActivity().finish();
+                });
         viewModel.getDestinationPois().observe(getViewLifecycleOwner(), pois -> {
             if (Objects.isNull(pois)) {
                 return;
@@ -72,6 +84,11 @@ public class DestinationSelectFragment extends Fragment {
                 .setOnClickListener(view -> {
                     Poi nextDestination = viewModel.getNextDestinationPoi();
                     if (Objects.isNull(nextDestination)) {
+                        if (isFirstNextBTClicked) {
+//                            ttsHelper.speakString();
+                            isFirstNextBTClicked = false;
+                            return;
+                        }
                         ttsHelper.speakString("일치하는 목적지가 없습니다");
                         return;
                     }
@@ -82,6 +99,11 @@ public class DestinationSelectFragment extends Fragment {
     private void initSelectDestinationBT(View rootView) {
         rootView.findViewById(R.id.selectDestinationBT)
                 .setOnClickListener(view -> {
+                    if (isFirstSelectBTClicked) {
+//                        ttsHelper.speakString();
+                        isFirstSelectBTClicked = false;
+                        return;
+                    }
                     if (Objects.isNull(viewModel.getCurDestinationPoi())) {
                         ttsHelper.speakString("목적지가 존재하지 않습니다");
                         return;
@@ -93,6 +115,11 @@ public class DestinationSelectFragment extends Fragment {
     private void initDestinationNameBT(View rootView) {
         rootView.findViewById(R.id.findDestinationBT)
                 .setOnClickListener(v -> {
+                    if (isFirstFindBTClicked) {
+//                        ttsHelper.speakString();
+                        isFirstFindBTClicked = false;
+                        return;
+                    }
                     audioRecordHelper.onRecord();
                     if (audioRecordHelper.hasRecordedData()) {
                         remoteNavigateDataSource.getDestinationName(requireActivity(), audioRecordHelper.getRecordedData(), viewModel::postDestinationName);

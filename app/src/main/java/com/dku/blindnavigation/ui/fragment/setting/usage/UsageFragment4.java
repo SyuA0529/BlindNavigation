@@ -10,13 +10,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.dku.blindnavigation.R;
+import com.dku.blindnavigation.utils.TTSHelper;
 
 public class UsageFragment4 extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.usage_frame_4, container, false);
+        View rootView = inflater.inflate(R.layout.usage_frame_4, container, false);
+        TTSHelper ttsHelper = new TTSHelper(requireActivity());
+        rootView.setOnClickListener(view -> {
+//            ttsHelper.speakString();
+        });
+        return rootView;
     }
 
 }

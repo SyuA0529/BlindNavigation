@@ -19,6 +19,11 @@ public class TtsSettingFragment extends SettingFragment {
 
     private TtsSettingFragmentViewModel mViewModel;
 
+    private boolean isFirstSpeedUpBTClicked = true;
+    private boolean isFirstSpeedDownBTClicked = true;
+    private boolean isFirstSaveBTClicked = true;
+    private boolean isFirstToMainBTClicked = true;
+
     public static TtsSettingFragment newInstance() {
         return new TtsSettingFragment();
     }
@@ -41,21 +46,39 @@ public class TtsSettingFragment extends SettingFragment {
     /** @noinspection DataFlowIssue*/
     private void initButtons(View rootView) {
         rootView.findViewById(R.id.ttsSpeedUp)
-                        .setOnClickListener(view -> mViewModel.increaseTtsSpeed());
+                        .setOnClickListener(view -> {
+                            if (isFirstSpeedUpBTClicked) {
+//                                ttsHelper.speakString();
+                                isFirstSpeedUpBTClicked = false;
+                                return;
+                            }
+                            mViewModel.increaseTtsSpeed();
+                        });
         rootView.findViewById(R.id.ttsSpeedDown)
-                        .setOnClickListener(view -> mViewModel.decreaseTtsSpeed());
+                        .setOnClickListener(view -> {
+                            if (isFirstSpeedDownBTClicked) {
+//                                ttsHelper.speakString();
+                                isFirstSpeedDownBTClicked = false;
+                                return;
+                            }mViewModel.decreaseTtsSpeed();
+                        });
 
         rootView.<Button>findViewById(R.id.testTTSBT)
                 .setOnClickListener(view -> ttsHelper.testSpeakString(mViewModel.getTtsSpeed().getValue()));
 
         rootView.<Button>findViewById(R.id.saveTTSBT)
                 .setOnClickListener(view -> {
+                    if (isFirstSaveBTClicked) {
+//                        ttsHelper.speakString();
+                        isFirstSaveBTClicked = false;
+                        return;
+                    }
                     mViewModel.saveTtsSpeed();
                     ttsHelper.changeTtsSpeed(mViewModel.getTtsSpeed().getValue());
                 });
 
         rootView.<Button>findViewById(R.id.ttsSpeedToMainBT)
-                .setOnClickListener(view -> toMainMenu());
+                .setOnClickListener(view -> isFirstToMainBTClicked = toMainMenu(isFirstToMainBTClicked));
     }
 
 }

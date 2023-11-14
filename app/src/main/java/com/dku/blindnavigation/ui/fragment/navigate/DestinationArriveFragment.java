@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.dku.blindnavigation.R;
+import com.dku.blindnavigation.utils.TTSHelper;
 import com.dku.blindnavigation.viewmodel.navigate.NavigateActivityViewModel;
 
 public class DestinationArriveFragment extends Fragment {
 
     private static final String TAG = "DestinationArriveFragment";
+
+    private boolean isFirstToMainBTClicked = true;
 
     public static DestinationArriveFragment newInstance() {
         DestinationArriveFragment fragment = new DestinationArriveFragment();
@@ -26,10 +29,18 @@ public class DestinationArriveFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_destination_arrive, container, false);
+        TTSHelper ttsHelper = new TTSHelper(getActivity());
         new ViewModelProvider(requireActivity()).get(NavigateActivityViewModel.class)
                 .changeTitle("목적지\n도착");
         rootView.findViewById(R.id.arriveDestToMainBT)
-                .setOnClickListener(view -> requireActivity().finish());
+                .setOnClickListener(view -> {
+                    if (isFirstToMainBTClicked) {
+//                        ttsHelper.speakString();
+                        isFirstToMainBTClicked = false;
+                        return;
+                    }
+                    requireActivity().finish();
+                });
         return rootView;
     }
 }

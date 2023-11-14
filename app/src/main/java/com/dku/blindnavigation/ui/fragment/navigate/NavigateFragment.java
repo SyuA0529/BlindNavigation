@@ -30,6 +30,8 @@ public class NavigateFragment extends Fragment {
     private NavigateActivityViewModel navigateActivityViewModel;
     private TTSHelper ttsHelper;
 
+    private boolean isFirstToMainBTClicked = true;
+
     public static NavigateFragment newInstance(Poi departurePoi, ArrayList<Poi> route, double degree) {
         NavigateFragment fragment = new NavigateFragment();
         Bundle bundle = new Bundle();
@@ -60,7 +62,14 @@ public class NavigateFragment extends Fragment {
         rootView.findViewById(R.id.nearLocationNameBT)
                 .setOnClickListener(view -> ttsHelper.speakString(navigateActivityViewModel.getCurLocationName().getValue()));
         rootView.findViewById(R.id.stopGuideBT)
-                .setOnClickListener(view -> stopNavigate());
+                .setOnClickListener(view -> {
+                    if (isFirstToMainBTClicked) {
+//                        ttsHelper.speakString();
+                        isFirstToMainBTClicked = false;
+                        return;
+                    }
+                    stopNavigate();
+                });
         return rootView;
     }
 
