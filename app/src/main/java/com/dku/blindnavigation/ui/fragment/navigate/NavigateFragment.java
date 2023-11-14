@@ -60,7 +60,6 @@ public class NavigateFragment extends Fragment {
         rootView.findViewById(R.id.nearLocationNameBT)
                 .setOnClickListener(view -> {
                     ttsHelper.speakString(navigateActivityViewModel.getCurLocationName().getValue());
-                    ttsHelper.speakString("현위치와 가장 가까운 곳입니다.");
                 });
         rootView.findViewById(R.id.stopGuideBT)
                 .setOnClickListener(view -> {
