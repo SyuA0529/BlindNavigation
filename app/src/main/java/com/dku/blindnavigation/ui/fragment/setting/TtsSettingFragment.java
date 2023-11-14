@@ -1,16 +1,14 @@
 package com.dku.blindnavigation.ui.fragment.setting;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.dku.blindnavigation.R;
 import com.dku.blindnavigation.viewmodel.setting.TtsSettingFragmentViewModel;
@@ -41,9 +39,15 @@ public class TtsSettingFragment extends SettingFragment {
     /** @noinspection DataFlowIssue*/
     private void initButtons(View rootView) {
         rootView.findViewById(R.id.ttsSpeedUp)
-                        .setOnClickListener(view -> mViewModel.increaseTtsSpeed());
+                        .setOnClickListener(view -> {
+                            ttsHelper.speakString("속도를 빠르게 합니다.");
+                            mViewModel.increaseTtsSpeed();
+                        });
         rootView.findViewById(R.id.ttsSpeedDown)
-                        .setOnClickListener(view -> mViewModel.decreaseTtsSpeed());
+                        .setOnClickListener(view -> {
+                            ttsHelper.speakString("속도를 느리게 합니다.");
+                            mViewModel.decreaseTtsSpeed();
+                        });
 
         rootView.<Button>findViewById(R.id.testTTSBT)
                 .setOnClickListener(view -> ttsHelper.testSpeakString(mViewModel.getTtsSpeed().getValue()));
@@ -52,10 +56,14 @@ public class TtsSettingFragment extends SettingFragment {
                 .setOnClickListener(view -> {
                     mViewModel.saveTtsSpeed();
                     ttsHelper.changeTtsSpeed(mViewModel.getTtsSpeed().getValue());
+                    ttsHelper.speakString("설정한 속도를 저장합니다.");
                 });
 
         rootView.<Button>findViewById(R.id.ttsSpeedToMainBT)
-                .setOnClickListener(view -> toMainMenu());
+                .setOnClickListener(view -> {
+                    ttsHelper.speakString("메인 메뉴로 이동합니다.");
+                    toMainMenu();
+                });
     }
 
 }

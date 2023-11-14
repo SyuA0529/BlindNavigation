@@ -48,10 +48,17 @@ public class MainMenuActivity extends AppCompatActivity {
             }
             ttsHelper.speakString("위치 권한이 허용되지 않았습니다");
         });
-        this.<Button>findViewById(R.id.btConnectBT).setOnClickListener(v ->
-                startActivity(new Intent(this, BluetoothConnectActivity.class)));
-        this.<Button>findViewById(R.id.settingBT).setOnClickListener(v ->
-                startActivity(new Intent(this, SettingActivity.class)));
+
+        this.<Button>findViewById(R.id.btConnectBT).setOnClickListener(v ->{
+            ttsHelper.speakString("블루투스 연결 메뉴입니다.");
+            startActivity(new Intent(this, BluetoothConnectActivity.class));
+        });
+
+        this.<Button>findViewById(R.id.settingBT).setOnClickListener(v -> {
+            ttsHelper.speakString("환경설정 메뉴입니다.");
+            startActivity(new Intent(this, SettingActivity.class));
+        });
+
         this.<Button>findViewById(R.id.exitBT).setOnClickListener(v ->
                 System.exit(0));
     }

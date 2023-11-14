@@ -58,9 +58,15 @@ public class NavigateFragment extends Fragment {
         startNavigate();
 
         rootView.findViewById(R.id.nearLocationNameBT)
-                .setOnClickListener(view -> ttsHelper.speakString(navigateActivityViewModel.getCurLocationName().getValue()));
+                .setOnClickListener(view -> {
+                    ttsHelper.speakString(navigateActivityViewModel.getCurLocationName().getValue());
+                    ttsHelper.speakString("현위치와 가장 가까운 곳입니다.");
+                });
         rootView.findViewById(R.id.stopGuideBT)
-                .setOnClickListener(view -> stopNavigate());
+                .setOnClickListener(view -> {
+                    ttsHelper.speakString("안내를 종료합니다.");
+                    stopNavigate();
+                });
         return rootView;
     }
 
