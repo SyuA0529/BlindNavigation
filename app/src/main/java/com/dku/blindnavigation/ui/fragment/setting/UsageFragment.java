@@ -38,7 +38,8 @@ public class UsageFragment extends SettingFragment {
     }
 
     private void initViewPager(View rootView) {
-        FragmentStateAdapter pagerAdapter = new UsageFragmentAdapter(this, FRAGMENT_COUNT);
+        FragmentStateAdapter pagerAdapter = new UsageFragmentAdapter(getChildFragmentManager(),
+                getViewLifecycleOwner().getLifecycle(), FRAGMENT_COUNT);
 
         pager = rootView.findViewById(R.id.viewpager);
         pager.setAdapter(pagerAdapter);

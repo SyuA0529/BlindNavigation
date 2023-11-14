@@ -2,6 +2,8 @@ package com.dku.blindnavigation.ui.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.dku.blindnavigation.ui.fragment.setting.usage.UsageFragment1;
@@ -13,10 +15,8 @@ public class UsageFragmentAdapter extends FragmentStateAdapter {
 
     private final int fragmentCount;
 
-
-
-    public UsageFragmentAdapter(@NonNull Fragment fragment, int fragmentCount) {
-        super(fragment);
+    public UsageFragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle, int fragmentCount) {
+        super(fragmentManager, lifecycle);
         this.fragmentCount = fragmentCount;
     }
 
