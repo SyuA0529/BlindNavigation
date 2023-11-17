@@ -5,6 +5,7 @@ import android.app.Application;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+import android.util.Log;
 
 import androidx.core.content.ContextCompat;
 
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class AudioRecordHelper {
+
+    private static final String TAG = "AudioRecordHelper";
 
     private static final String FILE_NAME = "BlindNavigationVoice";
     private static final String RAW_EXT = ".raw";
@@ -93,8 +96,9 @@ public class AudioRecordHelper {
                 }
                 fos.write(readData);
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException exception) {
+            Log.d(TAG, "writeRawData: Error");
+            exception.printStackTrace();
         }
     }
 
@@ -110,8 +114,9 @@ public class AudioRecordHelper {
             while (fis.read(data) != -1) {
                 fos.write(data);
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException exception) {
+            Log.d(TAG, "writeWavFile: Error");
+            exception.printStackTrace();
         }
     }
 

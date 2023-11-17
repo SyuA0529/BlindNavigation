@@ -10,14 +10,15 @@ import androidx.annotation.RequiresApi;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class LocationUtils {
 
     public static String getLocationNameByCoord(Context context, double lat, double lng) throws IOException {
         Geocoder geocoder = new Geocoder(context, Locale.KOREA);
         List<Address> locations = geocoder.getFromLocation(lat, lng, 1);
-        if (locations.isEmpty()) {
-            throw new RuntimeException();
+        if (Objects.isNull(locations) || locations.isEmpty()) {
+            return null;
         }
 
         String addressLine = null;

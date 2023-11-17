@@ -28,6 +28,9 @@ public class LocationNameProvider {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             try {
                 String departureName = LocationUtils.getLocationNameByCoord(context, latitude, longitude);
+                if (Objects.isNull(departureName)) {
+                    return;
+                }
                 mConsumer.accept(departureName);
             } catch (IOException ignored) {
             }
@@ -41,7 +44,7 @@ public class LocationNameProvider {
         @Override
         public void onGeocode(@NonNull List<Address> addresses) {
             if (addresses.isEmpty()) {
-                throw new RuntimeException();
+                return;
             }
 
             String addressLine = null;
