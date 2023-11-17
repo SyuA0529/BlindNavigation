@@ -27,11 +27,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="5dp"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/extrabold"
             android:text="@string/mainMenuTitle"
             android:gravity="center"
             android:textColor="@color/yellow"
-            android:textSize="70dp" />
+            android:textSize="60dp" />
     </LinearLayout>
 
     <!-- 경로 안내, 블루투스 연결-->

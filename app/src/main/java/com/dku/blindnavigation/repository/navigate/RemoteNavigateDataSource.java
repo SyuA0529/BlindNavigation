@@ -2,12 +2,12 @@ package com.dku.blindnavigation.repository.navigate;
 
 import android.content.Context;
 
-import com.dku.blindnavigation.repository.navigate.remote.dto.Poi;
+import com.dku.blindnavigation.repository.navigate.remote.CSRClient;
 import com.dku.blindnavigation.repository.navigate.remote.destination.DestinationCallback;
 import com.dku.blindnavigation.repository.navigate.remote.destination.DestinationClient;
+import com.dku.blindnavigation.repository.navigate.remote.dto.Poi;
 import com.dku.blindnavigation.repository.navigate.remote.route.RouteCallback;
 import com.dku.blindnavigation.repository.navigate.remote.route.RouteClient;
-import com.dku.blindnavigation.repository.navigate.remote.CSRClient;
 
 import java.util.ArrayList;
 import java.util.List;

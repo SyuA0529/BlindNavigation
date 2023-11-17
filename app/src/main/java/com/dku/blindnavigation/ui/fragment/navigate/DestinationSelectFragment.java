@@ -64,7 +64,7 @@ public class DestinationSelectFragment extends Fragment {
         rootView.findViewById(R.id.selectDestToMainBT)
                 .setOnClickListener(view -> {
                     if (isFirstToMainBTClicked) {
-//                        ttsHelper.speakString();
+                        ttsHelper.speakString("메인 메뉴로 이동하는 버튼입니다");
                         isFirstToMainBTClicked = false;
                         return;
                     }
@@ -85,7 +85,7 @@ public class DestinationSelectFragment extends Fragment {
                     Poi nextDestination = viewModel.getNextDestinationPoi();
                     if (Objects.isNull(nextDestination)) {
                         if (isFirstNextBTClicked) {
-//                            ttsHelper.speakString();
+                            ttsHelper.speakString("다음 목적지를 알려주는 버튼입니다");
                             isFirstNextBTClicked = false;
                             return;
                         }
@@ -100,7 +100,7 @@ public class DestinationSelectFragment extends Fragment {
         rootView.findViewById(R.id.selectDestinationBT)
                 .setOnClickListener(view -> {
                     if (isFirstSelectBTClicked) {
-//                        ttsHelper.speakString();
+                        ttsHelper.speakString("목적지 선택 버튼입니다");
                         isFirstSelectBTClicked = false;
                         return;
                     }
@@ -116,7 +116,7 @@ public class DestinationSelectFragment extends Fragment {
         rootView.findViewById(R.id.findDestinationBT)
                 .setOnClickListener(v -> {
                     if (isFirstFindBTClicked) {
-//                        ttsHelper.speakString();
+                        ttsHelper.speakString("목적지 검색 버튼입니다");
                         isFirstFindBTClicked = false;
                         return;
                     }

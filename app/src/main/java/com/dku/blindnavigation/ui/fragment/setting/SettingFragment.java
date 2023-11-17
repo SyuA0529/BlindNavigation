@@ -46,7 +46,7 @@ public class SettingFragment extends Fragment {
 
     protected boolean toMainMenu(boolean isFirstToMainBTClicked) {
         if (isFirstToMainBTClicked) {
-//            ttsHelper.speakString();
+            ttsHelper.speakString("메인 메뉴로 이동하는 버튼입니다");
         } else {
             requireActivity().finish();
         }

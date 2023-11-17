@@ -15,6 +15,7 @@ import com.dku.blindnavigation.viewmodel.navigate.NavigateActivityViewModel;
 public class DestinationArriveFragment extends Fragment {
 
     private static final String TAG = "DestinationArriveFragment";
+    private TTSHelper ttsHelper;
 
     private boolean isFirstToMainBTClicked = true;
 
@@ -29,13 +30,13 @@ public class DestinationArriveFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_destination_arrive, container, false);
-        TTSHelper ttsHelper = new TTSHelper(getActivity());
+        ttsHelper = new TTSHelper(requireActivity());
         new ViewModelProvider(requireActivity()).get(NavigateActivityViewModel.class)
                 .changeTitle("목적지\n도착");
         rootView.findViewById(R.id.arriveDestToMainBT)
                 .setOnClickListener(view -> {
                     if (isFirstToMainBTClicked) {
-//                        ttsHelper.speakString();
+                        ttsHelper.speakString("메인 메뉴로 이동하는 버튼입니다");
                         isFirstToMainBTClicked = false;
                         return;
                     }

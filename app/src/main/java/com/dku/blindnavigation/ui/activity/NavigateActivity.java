@@ -37,12 +37,17 @@ public class NavigateActivity extends AppCompatActivity {
     private CurLocationCoordProvider curLocationCoordProvider;
     private LocationNameProvider locationNameProvider;
     private NavigateActivityViewModel viewModel;
+    private DestinationSelectFragment destinationSelectFragment =
+            DestinationSelectFragment.newInstance();
+    private DestinationArriveFragment destinationArriveFragment =
+            DestinationArriveFragment.newInstance();
     private RemoteNavigateDataSource remoteNavigateDataSource;
+
     private final BroadcastReceiver arriveBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getStringExtra("message").equals("arrive")) {
-                changeFragment(DestinationArriveFragment.newInstance());
+                changeFragment(destinationArriveFragment);
             }
         }
     };
@@ -55,7 +60,7 @@ public class NavigateActivity extends AppCompatActivity {
         ttsHelper = new TTSHelper(this);
         fragmentManager = getSupportFragmentManager();
         remoteNavigateDataSource = RemoteNavigateDataSource.getInstance();
-        changeFragment(DestinationSelectFragment.newInstance());
+        changeFragment(destinationSelectFragment);
 
         viewModel = new ViewModelProvider(this).get(NavigateActivityViewModel.class);
         viewModel.getTitle().observe(this, this::setTitle);

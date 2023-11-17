@@ -9,7 +9,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.dku.blindnavigation.ui.fragment.setting.usage.UsageFragment1;
 import com.dku.blindnavigation.ui.fragment.setting.usage.UsageFragment2;
 import com.dku.blindnavigation.ui.fragment.setting.usage.UsageFragment3;
-import com.dku.blindnavigation.ui.fragment.setting.usage.UsageFragment4;
 
 public class UsageFragmentAdapter extends FragmentStateAdapter {
 
@@ -29,10 +28,8 @@ public class UsageFragmentAdapter extends FragmentStateAdapter {
                 return new UsageFragment1();
             case 1:
                 return new UsageFragment2();
-            case 2:
-                return new UsageFragment3();
             default:
-                return new UsageFragment4();
+                return new UsageFragment3();
         }
     }
 

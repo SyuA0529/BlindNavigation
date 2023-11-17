@@ -18,7 +18,7 @@ import me.relex.circleindicator.CircleIndicator3;
 public class UsageFragment extends SettingFragment {
 
     private static final String TAG = "UsageFragment";
-    private static final int FRAGMENT_COUNT = 4;
+    private static final int FRAGMENT_COUNT = 3;
 
     private ViewPager2 pager;
     private CircleIndicator3 indicator;

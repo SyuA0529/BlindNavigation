@@ -1,16 +1,14 @@
 package com.dku.blindnavigation.ui.fragment.setting;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.dku.blindnavigation.R;
 import com.dku.blindnavigation.viewmodel.setting.TtsSettingFragmentViewModel;
@@ -48,7 +46,7 @@ public class TtsSettingFragment extends SettingFragment {
         rootView.findViewById(R.id.ttsSpeedUp)
                         .setOnClickListener(view -> {
                             if (isFirstSpeedUpBTClicked) {
-//                                ttsHelper.speakString();
+                                ttsHelper.speakString("TTS 속도를 빠르게 하는 버튼입니다");
                                 isFirstSpeedUpBTClicked = false;
                                 return;
                             }
@@ -57,10 +55,11 @@ public class TtsSettingFragment extends SettingFragment {
         rootView.findViewById(R.id.ttsSpeedDown)
                         .setOnClickListener(view -> {
                             if (isFirstSpeedDownBTClicked) {
-//                                ttsHelper.speakString();
+                                ttsHelper.speakString("TTS 속도를 느리게 하는 버튼입니다");
                                 isFirstSpeedDownBTClicked = false;
                                 return;
-                            }mViewModel.decreaseTtsSpeed();
+                            }
+                            mViewModel.decreaseTtsSpeed();
                         });
 
         rootView.<Button>findViewById(R.id.testTTSBT)
@@ -69,12 +68,13 @@ public class TtsSettingFragment extends SettingFragment {
         rootView.<Button>findViewById(R.id.saveTTSBT)
                 .setOnClickListener(view -> {
                     if (isFirstSaveBTClicked) {
-//                        ttsHelper.speakString();
+                        ttsHelper.speakString("TTS 속도를 저장하는 버튼입니다");
                         isFirstSaveBTClicked = false;
                         return;
                     }
                     mViewModel.saveTtsSpeed();
                     ttsHelper.changeTtsSpeed(mViewModel.getTtsSpeed().getValue());
+                    ttsHelper.speakString("설정한 속도를 저장합니다.");
                 });
 
         rootView.<Button>findViewById(R.id.ttsSpeedToMainBT)

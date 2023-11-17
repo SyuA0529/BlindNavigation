@@ -31,13 +31,22 @@ public class SettingMainFragment extends SettingFragment {
 
     private void initButtons(View rootView) {
         rootView.<Button>findViewById(R.id.toTtsSpeedBT)
-                .setOnClickListener(view -> getRootView().changeFragmentNum(1));
+                .setOnClickListener(view -> {
+                    ttsHelper.speakString("TTS 속도 설정 메뉴");
+                    getRootView().changeFragmentNum(1);
+                });
 
         rootView.<Button>findViewById(R.id.toUsageBT)
-                .setOnClickListener(view -> getRootView().changeFragmentNum(2));
+                .setOnClickListener(view -> {
+                    ttsHelper.speakString("사용법");
+                    getRootView().changeFragmentNum(2);
+                });
 
         rootView.<Button>findViewById(R.id.toInquiryBT)
-                .setOnClickListener(view -> getRootView().changeFragmentNum(3));
+                .setOnClickListener(view -> {
+                    ttsHelper.speakString("문의사항");
+                    getRootView().changeFragmentNum(3);
+                });
 
         rootView.findViewById(R.id.settingToMainBT)
                 .setOnClickListener(view -> isFirstToMainBTClicked = toMainMenu(isFirstToMainBTClicked));
