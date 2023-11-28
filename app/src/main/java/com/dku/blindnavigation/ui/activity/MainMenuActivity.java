@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Button;
 
@@ -21,8 +22,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
     private static final String TAG = "MainMenuActivity";
     private static final int PERMISSION_CODE = 101;
-
     private TTSHelper ttsHelper;
+    private Vibrator vibrator;
     private boolean locationPermGranted = false;
     private boolean backgroundPermGranted = false;
     private boolean audioPermGranted = false;
@@ -41,10 +42,13 @@ public class MainMenuActivity extends AppCompatActivity {
         }
 
         initButtons();
+
+        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
     }
 
     private void initButtons() {
         this.<Button>findViewById(R.id.routeGuideBT).setOnClickListener(v -> {
+            vibrator.vibrate(300);
             ttsHelper.speakString("경로 안내 메뉴입니다.");
             if (locationPermGranted && backgroundPermGranted && audioPermGranted) {
                 startActivity(new Intent(this, NavigateActivity.class));
@@ -54,11 +58,13 @@ public class MainMenuActivity extends AppCompatActivity {
         });
 
         this.<Button>findViewById(R.id.btConnectBT).setOnClickListener(v ->{
+            vibrator.vibrate(300);
             ttsHelper.speakString("블루투스 연결 메뉴입니다.");
             startActivity(new Intent(this, BluetoothConnectActivity.class));
         });
 
         this.<Button>findViewById(R.id.settingBT).setOnClickListener(v -> {
+            vibrator.vibrate(300);
             ttsHelper.speakString("환경설정 메뉴입니다.");
             startActivity(new Intent(this, SettingActivity.class));
         });
