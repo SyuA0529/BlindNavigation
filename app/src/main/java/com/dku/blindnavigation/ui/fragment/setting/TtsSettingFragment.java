@@ -12,11 +12,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.dku.blindnavigation.R;
 import com.dku.blindnavigation.viewmodel.setting.TtsSettingFragmentViewModel;
+import com.dku.blindnavigation.utils.VibrationUtil;
 
 public class TtsSettingFragment extends SettingFragment {
 
     private TtsSettingFragmentViewModel mViewModel;
-
+    private VibrationUtil vibrationUtil;
     private boolean isFirstSpeedUpBTClicked = true;
     private boolean isFirstSpeedDownBTClicked = true;
     private boolean isFirstSaveBTClicked = true;
@@ -30,6 +31,7 @@ public class TtsSettingFragment extends SettingFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(TtsSettingFragmentViewModel.class);
+        vibrationUtil = new VibrationUtil(getActivity());
     }
 
     @Override
@@ -47,6 +49,7 @@ public class TtsSettingFragment extends SettingFragment {
                         .setOnClickListener(view -> {
                             if (isFirstSpeedUpBTClicked) {
                                 ttsHelper.speakString("TTS 속도를 빠르게 하는 버튼입니다");
+                                vibrationUtil.vibrate(300);
                                 isFirstSpeedUpBTClicked = false;
                                 return;
                             }
@@ -56,6 +59,7 @@ public class TtsSettingFragment extends SettingFragment {
                         .setOnClickListener(view -> {
                             if (isFirstSpeedDownBTClicked) {
                                 ttsHelper.speakString("TTS 속도를 느리게 하는 버튼입니다");
+                                vibrationUtil.vibrate(300);
                                 isFirstSpeedDownBTClicked = false;
                                 return;
                             }
@@ -63,22 +67,30 @@ public class TtsSettingFragment extends SettingFragment {
                         });
 
         rootView.<Button>findViewById(R.id.testTTSBT)
-                .setOnClickListener(view -> ttsHelper.testSpeakString(mViewModel.getTtsSpeed().getValue()));
+                .setOnClickListener(view -> {
+                    vibrationUtil.vibrate(300);
+                    ttsHelper.testSpeakString(mViewModel.getTtsSpeed().getValue());
+                });
 
         rootView.<Button>findViewById(R.id.saveTTSBT)
                 .setOnClickListener(view -> {
                     if (isFirstSaveBTClicked) {
                         ttsHelper.speakString("TTS 속도를 저장하는 버튼입니다");
+                        vibrationUtil.vibrate(300);
                         isFirstSaveBTClicked = false;
                         return;
                     }
                     mViewModel.saveTtsSpeed();
                     ttsHelper.changeTtsSpeed(mViewModel.getTtsSpeed().getValue());
                     ttsHelper.speakString("설정한 속도를 저장합니다.");
+                    vibrationUtil.vibrate(300);
                 });
 
         rootView.<Button>findViewById(R.id.ttsSpeedToMainBT)
-                .setOnClickListener(view -> isFirstToMainBTClicked = toMainMenu(isFirstToMainBTClicked));
+                .setOnClickListener(view -> {
+                    vibrationUtil.vibrate(300);
+                    isFirstToMainBTClicked = toMainMenu(isFirstToMainBTClicked);
+                });
     }
 
 }
