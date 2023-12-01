@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.dku.blindnavigation.R;
 import com.dku.blindnavigation.utils.TTSHelper;
+import com.dku.blindnavigation.utils.VibrationUtil;
 import com.dku.blindnavigation.viewmodel.navigate.NavigateActivityViewModel;
 
 public class DestinationArriveFragment extends Fragment {
@@ -31,11 +32,13 @@ public class DestinationArriveFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_destination_arrive, container, false);
         ttsHelper = new TTSHelper(requireActivity());
+        VibrationUtil vibrationUtil = new VibrationUtil(requireActivity());
         new ViewModelProvider(requireActivity()).get(NavigateActivityViewModel.class)
                 .changeTitle("목적지\n도착");
         rootView.findViewById(R.id.arriveDestToMainBT)
                 .setOnClickListener(view -> {
                     if (isFirstToMainBTClicked) {
+                        vibrationUtil.vibrate(300);
                         ttsHelper.speakString("메인 메뉴로 이동하는 버튼입니다");
                         isFirstToMainBTClicked = false;
                         return;

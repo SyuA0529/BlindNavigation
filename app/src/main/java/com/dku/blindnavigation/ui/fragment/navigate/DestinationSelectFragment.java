@@ -17,6 +17,7 @@ import com.dku.blindnavigation.repository.navigate.RemoteNavigateDataSource;
 import com.dku.blindnavigation.repository.navigate.remote.dto.Poi;
 import com.dku.blindnavigation.utils.AudioRecordHelper;
 import com.dku.blindnavigation.utils.TTSHelper;
+import com.dku.blindnavigation.utils.VibrationUtil;
 import com.dku.blindnavigation.utils.direction.OrientationListener;
 import com.dku.blindnavigation.viewmodel.navigate.NavigateActivityViewModel;
 import com.dku.blindnavigation.viewmodel.navigate.RouteSelectFragmentViewModel;
@@ -33,6 +34,7 @@ public class DestinationSelectFragment extends Fragment {
     private AudioRecordHelper audioRecordHelper;
     private OrientationListener mOrientationListener;
     private RemoteNavigateDataSource remoteNavigateDataSource;
+    private VibrationUtil vibrationUtil;
 
     private boolean isFirstSelectBTClicked = true;
     private boolean isFirstNextBTClicked = true;
@@ -49,6 +51,7 @@ public class DestinationSelectFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        vibrationUtil = new VibrationUtil(getActivity());
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -65,6 +68,7 @@ public class DestinationSelectFragment extends Fragment {
                 .setOnClickListener(view -> {
                     if (isFirstToMainBTClicked) {
                         ttsHelper.speakString("메인 메뉴로 이동하는 버튼입니다");
+                        vibrationUtil.vibrate(300);
                         isFirstToMainBTClicked = false;
                         return;
                     }
@@ -86,6 +90,7 @@ public class DestinationSelectFragment extends Fragment {
                     if (Objects.isNull(nextDestination)) {
                         if (isFirstNextBTClicked) {
                             ttsHelper.speakString("다음 목적지를 알려주는 버튼입니다");
+                            vibrationUtil.vibrate(300);
                             isFirstNextBTClicked = false;
                             return;
                         }
@@ -101,6 +106,7 @@ public class DestinationSelectFragment extends Fragment {
                 .setOnClickListener(view -> {
                     if (isFirstSelectBTClicked) {
                         ttsHelper.speakString("목적지 선택 버튼입니다");
+                        vibrationUtil.vibrate(300);
                         isFirstSelectBTClicked = false;
                         return;
                     }
@@ -117,6 +123,7 @@ public class DestinationSelectFragment extends Fragment {
                 .setOnClickListener(v -> {
                     if (isFirstFindBTClicked) {
                         ttsHelper.speakString("목적지 검색 버튼입니다");
+                        vibrationUtil.vibrate(300);
                         isFirstFindBTClicked = false;
                         return;
                     }

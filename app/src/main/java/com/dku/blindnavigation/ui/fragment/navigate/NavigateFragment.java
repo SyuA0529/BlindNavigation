@@ -17,6 +17,7 @@ import com.dku.blindnavigation.R;
 import com.dku.blindnavigation.repository.navigate.remote.dto.Poi;
 import com.dku.blindnavigation.service.NavigationService;
 import com.dku.blindnavigation.utils.TTSHelper;
+import com.dku.blindnavigation.utils.VibrationUtil;
 import com.dku.blindnavigation.viewmodel.navigate.NavigateActivityViewModel;
 
 import java.util.ArrayList;
@@ -52,6 +53,7 @@ public class NavigateFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_navigate, container, false);
         ttsHelper = new TTSHelper(requireActivity());
+        VibrationUtil vibrationUtil = new VibrationUtil(requireActivity());
         navigateActivityViewModel = new ViewModelProvider(requireActivity()).get(NavigateActivityViewModel.class);
 
         requireActivity().getOnBackPressedDispatcher()
@@ -64,6 +66,7 @@ public class NavigateFragment extends Fragment {
         rootView.findViewById(R.id.stopGuideBT)
                 .setOnClickListener(view -> {
                     if (isFirstToMainBTClicked) {
+                        vibrationUtil.vibrate(300);
                         ttsHelper.speakString("메인 메뉴로 이동하는 버튼입니다");
                         isFirstToMainBTClicked = false;
                         return;

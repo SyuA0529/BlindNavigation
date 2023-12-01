@@ -14,12 +14,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.dku.blindnavigation.utils.TTSHelper;
 import com.dku.blindnavigation.viewmodel.setting.SettingActivityViewModel;
+import com.dku.blindnavigation.utils.VibrationUtil;
 
 public class SettingFragment extends Fragment {
 
     private static final String TAG = "SettingFragment";
 
     protected TTSHelper ttsHelper;
+    private VibrationUtil vibrationUtil;
     private OnBackPressedCallback callback;
     private SettingActivityViewModel rootViewModel;
 
@@ -27,6 +29,7 @@ public class SettingFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         rootViewModel = new ViewModelProvider(requireActivity()).get(SettingActivityViewModel.class);
+        vibrationUtil = new VibrationUtil(getActivity());
     }
 
     @Override
@@ -46,6 +49,7 @@ public class SettingFragment extends Fragment {
 
     protected boolean toMainMenu(boolean isFirstToMainBTClicked) {
         if (isFirstToMainBTClicked) {
+            vibrationUtil.vibrate(300);
             ttsHelper.speakString("메인 메뉴로 이동하는 버튼입니다");
         } else {
             requireActivity().finish();
