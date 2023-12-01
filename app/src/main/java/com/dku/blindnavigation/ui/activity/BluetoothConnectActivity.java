@@ -17,6 +17,7 @@ import com.dku.blindnavigation.R;
 import com.dku.blindnavigation.utils.IntentUtils;
 import com.dku.blindnavigation.utils.PermissionUtils;
 import com.dku.blindnavigation.utils.TTSHelper;
+import com.dku.blindnavigation.utils.VibrationUtil;
 import com.dku.blindnavigation.utils.bluetooth.BluetoothHelper;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class BluetoothConnectActivity extends AppCompatActivity {
 
     private TTSHelper ttsHelper;
     private BluetoothHelper btHelper;
+    private VibrationUtil vibrationUtil;
     private final Set<BluetoothDevice> btDeviceSet = new HashSet<>();
     private List<BluetoothDevice> btDevices;
     private final Handler handler = new Handler();
@@ -42,6 +44,7 @@ public class BluetoothConnectActivity extends AppCompatActivity {
 
         PermissionUtils.checkBluetoothPermissions(this);
         btHelper = new BluetoothHelper(this);
+        vibrationUtil = new VibrationUtil(this);
 
         initButtons();
 
@@ -56,11 +59,13 @@ public class BluetoothConnectActivity extends AppCompatActivity {
                 return;
             }
             ttsHelper.speakString("장치 검색을 시작합니다.");
+            vibrationUtil.vibrate(300);
             btHelper.startDiscovery();
             handler.postDelayed(this::finishBTScan, 15000);
         });
 
         this.<Button>findViewById(R.id.btDeviceYesBT).setOnClickListener(v -> {
+            vibrationUtil.vibrate(300);
             if (checkDevicesNotInitialize()) {
                 return;
             }
@@ -70,6 +75,7 @@ public class BluetoothConnectActivity extends AppCompatActivity {
         });
 
         this.<Button>findViewById(R.id.btDeviceNoBT).setOnClickListener(v -> {
+            vibrationUtil.vibrate(300);
             if (checkDevicesNotInitialize()) {
                 return;
             }
