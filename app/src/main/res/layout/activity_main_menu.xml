@@ -98,7 +98,7 @@
             android:background="@drawable/rectangle_button"
             android:fontFamily="@font/extrabold"
             android:text="@string/exit"
-            android:textColor="@color/olive"
+            android:textColor="@color/black"
             android:textSize="85dp" />
     </LinearLayout>
 </LinearLayout>
