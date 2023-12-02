@@ -119,6 +119,7 @@ public class NavigationService extends Service {
 
     protected void arriveDestination() {
         Toast.makeText(this, "도착", Toast.LENGTH_LONG).show();
+        sendDirection(DirectionType.ARRIVE);
         sendArriveIntent();
         stopForeground(true);
         stopSelf();
@@ -157,9 +158,9 @@ public class NavigationService extends Service {
                 .build();
     }
 
-    private void sendDirection(DirectionType curLocation) {
-        btHelper.sendDirectionToDevice(curLocation);
-        Toast.makeText(this, curLocation.toString(), Toast.LENGTH_LONG).show();
+    private void sendDirection(DirectionType directionType) {
+        btHelper.sendDirectionToDevice(directionType);
+        Toast.makeText(this, directionType.toString(), Toast.LENGTH_LONG).show();
     }
 
     private void sendNextDirection(Poi nextLocation) {

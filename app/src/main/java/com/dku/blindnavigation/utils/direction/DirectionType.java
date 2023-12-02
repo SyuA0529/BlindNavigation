@@ -9,7 +9,8 @@ public enum DirectionType {
     DOWN,
     LEFT_DOWN,
     LEFT,
-    LEFT_UP;
+    LEFT_UP,
+    ARRIVE;
 
     public static DirectionType getDirectionType(double degree) {
         if (degree >= 22.5 && degree <= 67.5) return RIGHT_UP;
