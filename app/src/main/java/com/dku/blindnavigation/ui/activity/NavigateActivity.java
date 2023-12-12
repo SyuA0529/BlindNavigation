@@ -31,6 +31,7 @@ import java.util.Objects;
 public class NavigateActivity extends AppCompatActivity {
 
     private static final String TAG = "NavigateActivity";
+    private static final int MAX_POI_SIZE = 800;
 
     private TTSHelper ttsHelper;
     private FragmentManager fragmentManager;
@@ -88,6 +89,10 @@ public class NavigateActivity extends AppCompatActivity {
     private void initRouteObserver() {
         viewModel.getRoute().observe(this, pois -> {
             if (Objects.isNull(pois)) {
+                return;
+            }
+            if (pois.size() >= MAX_POI_SIZE) {
+                ttsHelper.speakString("목적지가 너무 멉니다");
                 return;
             }
             changeFragment(NavigateFragment.newInstance(getDeparturePoi(),
